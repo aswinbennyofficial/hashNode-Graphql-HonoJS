@@ -1,2 +1,8 @@
-# hashNode-Graphql-HonoJS
-Project to learn using HonoJS to work with Hashnode
+```
+npm install
+npm run start
+```
+
+```
+open http://localhost:3000
+```
