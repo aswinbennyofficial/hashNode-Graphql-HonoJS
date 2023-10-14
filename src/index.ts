@@ -12,12 +12,31 @@ app.get('/hashnode', async (c) => {
         },
         body: JSON.stringify({
             query : `{
-                publication(host: "aswinbenny.hashnode.dev") {
-                    seriesList(first: 0) {
-                        totalDocuments
-                    }
+                user(username: "aswinbenny") {
+                  id
+                  username
+                  name
+                  bio
+                  bioV2 {
+                    markdown
+                    html
+                    text
+                  }
+                  profilePicture
+                  coverPhoto
+                  socialMediaLinks {
+                    website
+                    github
+                    twitter
+                    instagram
+                    facebook
+                    stackoverflow
+                    linkedin
+                    youtube
+                  }
                 }
-            }`
+              }
+              `
         })
     });
 
