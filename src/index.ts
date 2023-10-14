@@ -4,7 +4,8 @@ import { Hono } from 'hono'
 const app = new Hono()
 app.get('/', (c) => c.text('Hello Hono!'))
 
-app.get('/hashnode', async (c) => {
+app.get('/hashnode/:id', async (c) => {
+    const id=String(c.req.param("id"));
     const data = await fetch('https://gql.hashnode.com/', {
         method: 'POST',
         headers: {
@@ -12,7 +13,7 @@ app.get('/hashnode', async (c) => {
         },
         body: JSON.stringify({
             query : `{
-                user(username: "aswinbenny") {
+                user(username: "${id}") {
                   id
                   username
                   name
